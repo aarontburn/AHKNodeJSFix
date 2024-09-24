@@ -473,9 +473,9 @@ write(x) {
   });
   await fs.writeFile(__dirname + '\\hotkeys.ahk', hotkeysString);
   const hotkeys = spawn(path, [__dirname + '\\hotkeys.ahk']);
-  runner.stdout.on('end', process.exit);
-  hotkeys.stdout.on('end', process.exit);
-  process.on('SIGINT', process.exit);
+  // runner.stdout.on('end', process.exit);
+  // hotkeys.stdout.on('end', process.exit);
+  // process.on('SIGINT', process.exit);
   process.on('exit', function () {
     if (!runner.killed) runner.kill();
     if (!hotkeys.killed) hotkeys.kill();
@@ -496,6 +496,6 @@ write(x) {
   var initVars = JSON.parse(await wait());
   ahk.width = initVars.width;
   ahk.height = initVars.height;
-  console.log(ahk);
+  // console.log(ahk);
   return ahk;
 };
